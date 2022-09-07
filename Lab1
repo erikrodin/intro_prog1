@@ -1,2 +1,38 @@
-print("hej")
-hej
+def tokenize(lines):
+
+    words=[]
+
+    for line in lines:
+
+        start = 0
+        while start < len(line):
+            
+            while line[start].isspace():
+                start=start+1
+                
+        
+            #print(line[start])
+            
+            if line[start].isalpha():
+                print(line[start] + " is a letter")
+            
+            
+            
+            elif line[start].isdigit():
+                print(line[start] + " is a digit")
+        
+            
+            else:
+                print(line[start] + " is a symbol")
+            
+            start = start+1
+
+
+    
+
+    return words
+    
+
+
+print(tokenize(['1 pie.']))
+
