@@ -1,3 +1,6 @@
+
+
+
 def tokenize(lines):
 
     words=[]
@@ -9,30 +12,43 @@ def tokenize(lines):
             
             while line[start].isspace():
                 start=start+1
-                
-        
+                 
             #print(line[start])
             
             if line[start].isalpha():
-                print(line[start] + " is a letter")
-            
-            
-            
+                #print(line[start] + " is a letter")
+                
+                end = start
+                
+                while line[end].isalpha():
+                    
+                    end = end+1
+                    
+                words.append(line[start:end])    
+                start = end
+                
             elif line[start].isdigit():
-                print(line[start] + " is a digit")
-        
-            
+                #print(line[start] + " is a digit")
+                
+                end = start
+                
+                while line[end].isdigit():
+                    
+                    end = end+1
+                    
+                words.append(line[start:end])    
+                start = end
+                
+                #print(line[start] + " is a symbol")
             else:
-                print(line[start] + " is a symbol")
-            
+                
+                words.append(line[start])
+                         
             start = start+1
-
-
-    
-
+        
     return words
     
 
 
-print(tokenize(['1 pie.']))
+print(tokenize(['10  sweet  apple  tarts.']))
 
