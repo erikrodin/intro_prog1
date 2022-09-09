@@ -1,6 +1,4 @@
 
-
-
 def tokenize(lines):
 
     words=[]
@@ -50,5 +48,34 @@ def tokenize(lines):
     
 
 
-print(tokenize(['10 sweet apple tarts!']))
+#print(tokenize(['10 sweet apple tarts!']))
+
+
+def countWords(words, stopWords):
+  
+    frequencies={}
+    
+    count=0
+    
+    for word in words:
+        
+        
+        if word not in stopWords:
+            
+            if word not in frequencies:
+                    
+                count = 1
+                frequencies.update({word})
+                
+            else:
+                count=count+1
+    
+    return frequencies
+
+
+
+print(countWords(['it','is','a','book'], ['a','is','it'] ))        
+                
+
+
 
