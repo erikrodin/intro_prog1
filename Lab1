@@ -65,16 +65,16 @@ def countWords(words, stopWords):
             if word not in frequencies:
                     
                 count = 1
-                frequencies.update({word})
+                frequencies[word] = count
                 
             else:
-                count=count+1
+                frequencies[word]=count+1
     
     return frequencies
 
 
 
-print(countWords(['it','is','a','book'], ['a','is','it'] ))        
+print(countWords(['it','is','a','book','book','book','hej'], ['a','is','it'] ))        
                 
 
 
