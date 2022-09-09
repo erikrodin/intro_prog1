@@ -44,11 +44,11 @@ def tokenize(lines):
                 
                 words.append(line[start])
                          
-            start = start+1
+                start = start+1
         
     return words
     
 
 
-print(tokenize(['10  sweet  apple  tarts.']))
+print(tokenize(['10 sweet apple tarts!']))
 
