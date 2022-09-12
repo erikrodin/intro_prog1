@@ -1,11 +1,14 @@
 
 def tokenize(lines):
-
+    
+    lines=[line.lower() for line in lines]
+    
     words=[]
-
+    
     for line in lines:
-
+        
         start = 0
+       
         while start < len(line):
             
             while line[start].isspace():
@@ -48,7 +51,7 @@ def tokenize(lines):
     
 
 
-#print(tokenize(['10 sweet apple tarts!']))
+print(tokenize(['10 sweet apple tarts!']))
 
 
 def countWords(words, stopWords):
