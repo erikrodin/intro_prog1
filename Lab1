@@ -43,7 +43,7 @@ def tokenize(lines):
                     start = start+1
         
     return words
-
+#print(tokenize(["10 sweet apple tarts !"]))
 
 def countWords(words, stopWords):
   
@@ -62,7 +62,9 @@ def countWords(words, stopWords):
                 frequencies[word] = count
                 
             else:
-                frequencies[word]=count+1
+                
+                frequencies[word]=frequencies.get(word)+1
+            
     
     return frequencies
 
@@ -78,7 +80,4 @@ def printTopMost(frequencies,n):
         print(str(word).ljust(20),str(freq).rjust(5))
           
 
-printTopMost({'text': 9, 'word': 30, 'fiction': 6, 'count': 11, 'counting': 7, 'novel': 6},3)
-    
-    
-    
+#printTopMost({'text': 9, 'word': 30, 'fiction': 6, 'count': 11, 'counting': 7, 'novel': 6},3)
