@@ -1,0 +1,39 @@
+
+from wordfreq import countWords, printTopMost, tokenize
+import wordfreq
+import sys
+
+inp_file1 = open(sys.argv[1], encoding="utf-8")
+stopwords=[]
+for line in inp_file1:
+    
+    stopwords.append(line.strip("\n"))  
+
+inp_file1.close()
+
+
+inp_file2 = open(sys.argv[2], encoding="utf-8")
+text=[]
+for line in inp_file2:
+    
+    text.append(line.strip("\n"))  
+
+inp_file2.close()
+
+
+topWords=sys.argv[3]
+
+
+def main(stopwords,line,n):
+   
+
+
+    print(printTopMost(countWords(tokenize(line), stopwords),n))
+
+
+
+main(stopwords,text,topWords)
+    
+
+    
+    
