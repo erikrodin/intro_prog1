@@ -3,36 +3,33 @@ from wordfreq import countWords, printTopMost, tokenize
 import wordfreq
 import sys
 
-inp_file1 = open(sys.argv[1], encoding="utf-8")
-stopwords=[]
-for line in inp_file1:
-    
-    stopwords.append(line.strip("\n"))  
+import urllib.request
 
-inp_file1.close()
+def main():
+    inp_file1 = open(sys.argv[1], encoding="utf-8")
+    stopwords=[]
+    for line in inp_file1:
+        
+        stopwords.append(line.strip())  
 
+    inp_file1.close()
 
-inp_file2 = open(sys.argv[2], encoding="utf-8")
-text=[]
-for line in inp_file2:
-    
-    text.append(line.strip("\n"))  
+    if sys.argv[2][:7] == "http://" or sys.argv[2][:8] == "https://":
+        
+        response = urllib.request.urlopen(sys.argv[2])
+        lines = response.read().decode("utf-8").splitlines()
+        words=tokenize(lines)
 
-inp_file2.close()
+    else:
+        inp_file2 = open(sys.argv[2], encoding="utf-8")
+        words=tokenize(inp_file2)
+        inp_file2.close()
 
-
-topWords=sys.argv[3]
-
-
-def main(stopwords,line,n):
-   
-
-
-    print(printTopMost(countWords(tokenize(line), stopwords),n))
+    print(printTopMost(countWords(words, stopwords),int(sys.argv[3])))
 
 
 
-main(stopwords,text,topWords)
+main()
     
 
     
