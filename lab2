@@ -14,18 +14,20 @@ def transpose(matrix):
 
 A=[[1,2],[4,5],[3,6]]
 
-
-transpose(A)
+#transpose(A)
 
 def powers(matrix,n,m):
-    n=n
-    a=[]
-    for n in range(m+1):
-        row=[]
-        for i in range(len(matrix)):
-           row.append(matrix[i]**n)
-           
-        a.append(row)
-    return a
+    new_matrix=[]
+    kollumn=[]
+    for i in matrix:
+        kollumn=[]
+        for j in range(n,m+1):
+            kollumn.append(i**j)
+        new_matrix=new_matrix+[kollumn]
+        
+    return new_matrix
 
 print(powers([2,3,4],0,2))
+    
+        
+    
