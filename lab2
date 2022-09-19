@@ -16,3 +16,16 @@ A=[[1,2],[4,5],[3,6]]
 
 
 transpose(A)
+
+def powers(matrix,n,m):
+    n=n
+    a=[]
+    for n in range(m+1):
+        row=[]
+        for i in range(len(matrix)):
+           row.append(matrix[i]**n)
+           
+        a.append(row)
+    return a
+
+print(powers([2,3,4],0,2))
