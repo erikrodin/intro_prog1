@@ -1,4 +1,7 @@
 
+from itertools import product
+
+
 def transpose(matrix):
     result=[[0,0,0],[0,0,0]]
     for i in range(len(matrix)):
@@ -27,7 +30,39 @@ def powers(matrix,n,m):
         
     return new_matrix
 
-print(powers([2,3,4],0,2))
+#print(powers([2,3,4],0,2))
     
-        
+def matmul(matrix1,matrix2):
+    
+    product_matrix=[[0 for a in range(len(matrix2[0]))] for b in range(len(matrix1))]
+    
+    
+    for i in range(len(matrix1)):
+        for j in range(len(matrix2[0])):
+            product_matrix[i][j]=0
+            for k in range(len(matrix2)):
+                product_matrix[i][j] += matrix1[i][k] * matrix2[k][j] 
+                
+
+
+    for r in product_matrix:
+        print(r)
+"""
+I = [[1,0,0,0],
+     [0,1,0,0],
+     [0,0,1,0],
+     [0,0,0,1]]
+
+s1 = [[1, 2, 3], 
+      [4, 5, 6]]
+     
+s3 = [[7,8,9,10],
+      [11,12,13,14],
+      [15,16,17,18]]
+
+matmul(s3,I)
+"""
+
+
+                    
     
