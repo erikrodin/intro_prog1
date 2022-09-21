@@ -4,21 +4,21 @@ from tokenize import Double
 
 
 def transpose(matrix):
-    result=[[0,0,0],[0,0,0]]
-    for i in range(len(matrix)):
-        
-        for j in range(len(matrix[0])):
-            
-            result[j][i]=matrix[i][j]
-            
-    for r in result:
-        print(r)   
+    result=[]
+    if matrix==0:
+        return result
+    else:
+        for i in range(len(matrix[0])):
+            item=[]
+            for j in range(len(matrix)):
+                item.append(matrix[j][i])
+            result.append(item)  
 
-
+    return result
 
 A=[[1,2],[4,5],[3,6]]
 
-#transpose(A)
+#print(transpose(A))
 
 def powers(matrix,n,m):
     new_matrix=[]
