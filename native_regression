@@ -1,0 +1,15 @@
+from matrix import *
+
+matrix=loadtxt("prog\lab2\chirps.txt")
+X=[]
+Y=[]
+for i in range(len(matrix)):
+    X.append(matrix[i][0])
+    Y.append(matrix[i][1])
+
+Xp  = powers(X,0,1)
+Yp  = powers(Y,1,1)
+Xpt = transpose(Xp)
+
+[[b],[m]] = matmul(invert(matmul(Xpt,Xp)),matmul(Xpt,Yp))
+
