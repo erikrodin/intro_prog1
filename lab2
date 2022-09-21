@@ -1,5 +1,6 @@
 
 from itertools import product
+from tokenize import Double
 
 
 def transpose(matrix):
@@ -39,14 +40,11 @@ def matmul(matrix1,matrix2):
     
     for i in range(len(matrix1)):
         for j in range(len(matrix2[0])):
-            product_matrix[i][j]=0
+            
             for k in range(len(matrix2)):
                 product_matrix[i][j] += matrix1[i][k] * matrix2[k][j] 
-                
-
-
-    for r in product_matrix:
-        print(r)
+                 
+    return product_matrix
 """
 I = [[1,0,0,0],
      [0,1,0,0],
@@ -62,12 +60,30 @@ s3 = [[7,8,9,10],
 
 matmul(s3,I)
 """
+
 def invert(matrix):
     invert2=matrix[0][0]*matrix[1][1]-matrix[0][1]*matrix[1][0]
     invert3=[[matrix[1][1]/invert2,-matrix[0][1]/invert2],[-matrix[1][0]/invert2,matrix[0][0]/invert2]]
     return invert3
+"""
 matrix=[[1,2],[3,4]]
-print(invert(matrix))
 
-                    
+print(matmul(matrix,invert(matrix)))
+"""
+def loadtxt(text_fil):
+    ny_matris=[]
+    item=[]
     
+    file=open(text_fil)
+    lines=file.readlines()
+    file.close()
+    
+    for line in lines:
+        place=line.split()
+        for i in place:
+            item.append(float(i))
+        ny_matris.append(item)
+        item=[]
+    return ny_matris
+
+#print(loadtxt("prog\lab2\chirps.txt"))
