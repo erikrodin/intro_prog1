@@ -1,0 +1,26 @@
+def invert(matrix):
+    
+    inverted_matrix=[]
+    
+    invert_row1=[]
+    invert_row2=[]
+    
+    a=(matrix[0][0])/ ((matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]))
+    b=(-1)*(matrix[0][1])/ ((matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]))
+    c=(-1)*(matrix[1][0])/ ((matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]))
+    d=(matrix[1][1])/ ((matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]))
+    
+    invert_row1.append(d)
+    invert_row1.append(b)
+    
+    invert_row2.append(c)
+    invert_row2.append(a)
+
+    inverted_matrix.append(invert_row1)
+    inverted_matrix.append(invert_row2)
+
+    return inverted_matrix
+
+A = [[1, 2], 
+      [3, 4]]
+print(invert(A))
