@@ -1,4 +1,5 @@
 from matrix import *
+import matplotlib.pyplot as plt
 
 matrix=loadtxt("prog\lab2\chirps.txt")
 X=[]
@@ -13,3 +14,11 @@ Xpt = transpose(Xp)
 
 [[b],[m]] = matmul(invert(matmul(Xpt,Xp)),matmul(Xpt,Yp))
 
+temperature=2
+
+Y2= b + m * temperature
+
+
+plt.plot(X,Y,'ro')
+plt.plot(X,Y2)
+plt.show()
