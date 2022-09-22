@@ -14,11 +14,12 @@ Xpt = transpose(Xp)
 
 [[b],[m]] = matmul(invert(matmul(Xpt,Xp)),matmul(Xpt,Yp))
 
-temperature=2
+Y2=[]
 
-Y2= b + m * temperature
-
-
+for j in range(len(Y)):
+    Y2.append(b + m * X[j])
+    
 plt.plot(X,Y,'ro')
 plt.plot(X,Y2)
 plt.show()
+
