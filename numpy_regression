@@ -1,0 +1,57 @@
+from numpy import *
+import matplotlib.pyplot as plt
+import sys
+def powers(matrix,n,m):
+    new_matrix=[]
+    kollumn=[]
+    for i in matrix:
+        kollumn=[]
+        for j in range(n,m+1):
+            kollumn.append(i**j)
+        new_matrix=new_matrix+[kollumn]
+        
+    return array(new_matrix)
+
+
+matrix=loadtxt(sys.argv[1])
+X=[]
+Y=[]
+for i in range(len(matrix)):
+    X.append(matrix[i][0])
+    Y.append(matrix[i][1])
+
+
+
+Xp  = powers(X,0,int(sys.argv[2]))
+Yp  = powers(Y,1,1)
+Xpt = Xp.transpose()
+
+a = matmul(linalg.inv(matmul(Xpt,Xp)),matmul(Xpt,Yp))
+a = a[:,0]
+
+def poly(a,x):
+    value=0
+    
+    for j in range(len(a)):
+        value+=(a[j]*x**j)
+            
+    return value
+
+
+
+
+
+A=min(X)
+b=max(X)
+n=(b-A)/0.2
+
+X2=linspace(A,b,int(n)).tolist()
+
+Y2=[]
+
+for k in X2:
+    Y2.append(poly(a,k))
+
+plt.plot(X,Y,'ro')
+plt.plot(X2,Y2)
+plt.show()
