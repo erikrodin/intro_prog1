@@ -1,7 +1,7 @@
 from matrix import *
 import matplotlib.pyplot as plt
 
-matrix=loadtxt("prog\lab2\chirps-modified.txt")
+matrix=loadtxt(sys.argv[1])
 X=[]
 Y=[]
 for i in range(len(matrix)):
